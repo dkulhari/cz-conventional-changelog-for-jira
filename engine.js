@@ -101,15 +101,23 @@ module.exports = function(options) {
           }
         },
         {
+          type: 'input',
+          name: 'timelog',
+          message: 'Log JIRA #time in hours (decimal value accepted e.g. 1.5)',
+          when: options.jiraMode,
+          default: '',
+          validate: function(timelog) {
+            return /^[0-9]+(.[0-9])?$/.test(timelog);
+          }
+        },
+        {
           type: hasScopes ? 'list' : 'input',
           name: 'scope',
           when: !options.skipScope,
           choices: hasScopes ? options.scopes : undefined,
           message:
             'What is the scope of this change (e.g. component or file name): ' +
-            hasScopes
-              ? '(select from the list)'
-              : '(press enter to skip)',
+            (hasScopes ? '(select from the list)' : '(press enter to skip)'),
           default: options.defaultScope,
           filter: function(value) {
             return value.trim().toLowerCase();
@@ -129,7 +137,7 @@ module.exports = function(options) {
               scope = `(${answers.scope})`;
             }
 
-            return `${answers.type}${scope}:${jira}`;
+            return `${answers.type}${scope}:${jira} #time ${answers.timelog}h`;
           },
           validate: input =>
             input.length >= minHeaderWidth ||
@@ -202,7 +210,13 @@ module.exports = function(options) {
         var jira = answers.jira ? answers.jira + ' ' : '';
 
         // Hard limit this line in the validate
-        const head = answers.type + scope + ': ' + jira + answers.subject;
+        const head =
+          answers.type +
+          scope +
+          ': ' +
+          jira +
+          `#time ${answers.timelog}h ` +
+          answers.subject;
 
         // Wrap these lines at options.maxLineWidth characters
         var body = answers.body ? wrap(answers.body, wrapOptions) : false;

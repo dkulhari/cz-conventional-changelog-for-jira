@@ -29,7 +29,7 @@ and then add the following to package.json:
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira"
+      "path": "./node_modules/@**dkulhari**/cz-conventional-changelog-for-jira"
     }
   }
 }
@@ -58,8 +58,8 @@ Like commitizen, you can specify the configuration of cz-conventional-changelog-
 
 ## Dynamic Configuration
 
-Alternatively, if you want to create your own profile, you can use the _configurable_ approach.  
-Here is an example:  
+Alternatively, if you want to create your own profile, you can use the _configurable_ approach.
+Here is an example:
 **./index.js**
 ```javascript
 const custom = require('@digitalroute/cz-conventional-changelog-for-jira/configurable');
@@ -89,12 +89,12 @@ module.exports = custom({
 }
 ```
 
-This example would:  
+This example would:
 * Display _"perf"_ as an extra commit type
 * Ask you to add a commit scope
 * Limit the scope selection to either `myScope` or `myScope2`
 
-List of all supported configurable options when using the _configurable_ approach:  
+List of all supported configurable options when using the _configurable_ approach:
 | Key            | Default   | Description                                                                                                                                                           |
 | -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | jiraMode       | true      | If this is set to true, CZ will ask for a Jira issue and put it in the commit head. If set to false CZ will ask for the issue in the end, and can be used for GitHub. |

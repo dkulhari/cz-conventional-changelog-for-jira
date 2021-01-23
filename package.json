@@ -1,6 +1,6 @@
 {
-  "name": "@digitalroute/cz-conventional-changelog-for-jira",
-  "version": "0.0.0-semantically-released",
+  "name": "@dkulhari/cz-conventional-changelog-for-jira",
+  "version": "0.0.3",
   "description": "Commitizen adapter following the conventional-changelog format and also asking for JIRA issue.",
   "main": "index.js",
   "scripts": {
@@ -9,21 +9,21 @@
     "format": "prettier --write *.js",
     "semantic-release": "semantic-release"
   },
-  "homepage": "https://github.com/digitalroute/cz-conventional-changelog-for-jira",
+  "homepage": "https://github.com/dkulhari/cz-conventional-changelog-for-jira",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalroute/cz-conventional-changelog-for-jira.git"
+    "url": "https://github.com/dkulhari/cz-conventional-changelog-for-jira.git"
   },
   "engineStrict": true,
   "engines": {
     "node": ">= 10"
   },
-  "author": "Marcus Johansson <polarn@gmail.com>",
+  "author": "Marcus Johansson <polarn@gmail.com> and DKulhari",
   "license": "MIT",
   "dependencies": {
     "boxen": "^5.0.0",
     "chalk": "^2.4.1",
-    "commitizen": "^4.0.3",
+    "commitizen": "^4.2.3",
     "git-branch": "^2.0.1",
     "lodash.map": "^4.5.1",
     "longest": "^2.0.1",
